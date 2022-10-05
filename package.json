@@ -1,5 +1,5 @@
 {
-  "name": "whatsapp_ui_clone",
+  "name": "youtube_ui_clone",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-masked-view/masked-view": "^0.2.7",
+    "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/material-top-tabs": "^6.2.4",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.1",

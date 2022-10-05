@@ -1,26 +1,36 @@
 import React from 'react';
-import {HStack, Text} from 'native-base';
-import {NativeModules} from 'react-native';
+import {Avatar, HStack, Text} from 'native-base';
+import {Image, NativeModules} from 'react-native';
 import SearchIcon from '../../icons/SearchIcon';
-import MenuIcon from '../../icons/MenuIcon';
-const {StatusBarManager} = NativeModules;
+import CastIcon from '../../icons/CastIcon';
+import NotifIcon from '../../icons/NotificationIcon';
 
 export default function Header() {
   return (
     <HStack
       alignItems="center"
+      justifyContent="space-between"
       px="10px"
-      bg="#008069"
-      pt={StatusBarManager.HEIGHT + 'px'}
       pb="15px">
-      <Text fontWeight="medium" flex="1" fontSize="2xl" color="#fff">
-        WhatsApp
-      </Text>
+      <Image
+        style={{
+          height: 25,
+          width: 100,
+          resizeMode: 'contain',
+        }}
+        source={{
+          uri: 'https://www.youtube.com/img/desktop/supported_browsers/yt_logo_rgb_light.png',
+        }}
+      />
 
       {/* icons */}
       <HStack alignItems="center" space="20px">
-        <SearchIcon color="white" size={25} />
-        <MenuIcon color="white" size={25} />
+        <CastIcon color="black" size={25} />
+        <NotifIcon color="black" size={25} />
+        <SearchIcon color="black" size={25} />
+        <Avatar size="sm" bg="orange.500">
+          TO
+        </Avatar>
       </HStack>
     </HStack>
   );

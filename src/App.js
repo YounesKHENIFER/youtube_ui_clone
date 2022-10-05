@@ -8,8 +8,6 @@ import {StatusBar} from 'react-native';
 export default function App() {
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="light-content" />
-
       <NavigationContainer>
         <NativeBaseProvider>
           <Stack />

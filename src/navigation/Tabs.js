@@ -1,45 +1,73 @@
-import {
-  createMaterialTopTabNavigator,
-  MaterialTopTabBar,
-} from '@react-navigation/material-top-tabs';
-import {Box, HStack} from 'native-base';
-import CameraIcon from '../icons/CameraIcon';
-import CallsScreen from '../screens/CallsScreen';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const Tab = createMaterialTopTabNavigator();
-import MessagesScreen from '../screens/MessagesScreen';
-import StatusScreen from '../screens/StatusScreen';
+import HomeScreen from '../screens/HomeScreen';
+import EmptyScreen from '../screens/EmptyScreen';
+import HomeIcon from '../icons/HomeIcon';
+import ShortsIcon from '../icons/ShortsIcon';
+import AddIcon from '../icons/AddIcon';
+
+import SubsIcon from '../icons/SubsIcon';
+import LibIcon from '../icons/LibaryIcon';
+const Tab = createBottomTabNavigator();
+
 export default function MyTabs() {
   return (
     <Tab.Navigator
-      tabBar={props => (
-        <HStack space="5px" bg="#008069" alignItems="center" pl="5px">
-          <CameraIcon color="#fff" size={25} />
-          <Box flex="1">
-            <MaterialTopTabBar {...props} />
-          </Box>
-        </HStack>
-      )}
       screenOptions={{
-        tabBarContentContainerStyle: {
-          backgroundColor: '#008069',
-        },
+        headerShown: false,
         tabBarLabelStyle: {
-          fontSize: 14,
-          fontWeight: '500',
-          color: 'white',
-        },
-        tabBarIndicatorStyle: {
-          backgroundColor: '#fff',
-          height: 3,
-        },
-        tabBarIndicatorContainerStyle: {
-          zIndex: 10000,
+          fontSize: 12,
+          color: 'black',
         },
       }}>
-      <Tab.Screen name="Chats" component={MessagesScreen} />
-      <Tab.Screen name="Status" component={StatusScreen} />
-      <Tab.Screen name="Calls" component={CallsScreen} />
+      <Tab.Screen
+        options={{
+          tabBarIcon: () => {
+            return <HomeIcon size={23} />;
+          },
+        }}
+        name="Home"
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: () => {
+            return <ShortsIcon size={23} />;
+          },
+        }}
+        name="Shorts"
+        component={EmptyScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: () => {
+            return <AddIcon size={35} />;
+          },
+          tabBarLabelStyle: {
+            height: 0,
+          },
+        }}
+        name="Add"
+        component={EmptyScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: () => {
+            return <SubsIcon size={23} />;
+          },
+        }}
+        name="Subs"
+        component={EmptyScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: () => {
+            return <LibIcon size={23} />;
+          },
+        }}
+        name="Lib"
+        component={EmptyScreen}
+      />
     </Tab.Navigator>
   );
 }

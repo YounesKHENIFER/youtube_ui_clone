@@ -11,7 +11,7 @@ export default function MyStack() {
         headerShown: false,
         ...TransitionPresets.SlideFromRightIOS,
       }}>
-      <Stack.Screen name="Home" component={MainScreen} />
+      <Stack.Screen name="HomeScreen" component={MainScreen} />
     </Stack.Navigator>
   );
 }
